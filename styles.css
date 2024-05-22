@@ -1,0 +1,17 @@
+body {
+    overflow-x: hidden;
+}
+
+.row {
+    display: flex;
+    justify-content: center !important;
+    margin-block: 2em;
+}
+
+.inputs {
+    font-size: 1.5em;
+}
+
+input {
+    margin-bottom: 1em !important;
+}
