@@ -30,6 +30,9 @@ function jqueryGet() {
 
 function consultaCep() {
     const cep = document.querySelector('#cep').value;
+    if (!cep)
+        return;
+
     fetch(`https://viacep.com.br/ws/${cep}/json/`)
         .then(resposta => {
             if (!resposta.ok) {
@@ -52,6 +55,66 @@ function consultaCep() {
             document.getElementById('GIA').value = json.gia || '';
             document.getElementById('DDD').value = json.ddd || '';
             document.getElementById('siafi').value = json.siafi || '';
+
+            const currentAddress = {
+                logradouro: json.logradouro,
+                complemento: json.complemento,
+                bairro: json.bairro,
+                localidade: json.localidade,
+                uf: json.uf,
+                ibge: json.ibge,
+                gia: json.gia,
+                ddd: json.ddd,
+                siafi: json.siafi
+            };
+            localStorage.setItem('currentAddress', JSON.stringify(currentAddress));
         })
         .catch(error => console.error('Erro:', error));
 }
+
+function addEndereco() {
+    const currentAddress = JSON.parse(localStorage.getItem('currentAddress'));
+
+    if (!currentAddress) {
+        alert('Você precisa consultar um CEP primeiro.');
+        return;
+    }
+
+    let addresses = JSON.parse(localStorage.getItem('listAddresses')) || [];
+
+    addresses.push(currentAddress);
+    console.log(addresses);
+
+    localStorage.setItem('listAddresses', JSON.stringify(addresses));
+
+    alert('Endereço adicionado com sucesso.');
+    localStorage.removeItem('currentAddress');
+    location.reload();
+}
+
+function loadAddresses() {
+    let addresses = JSON.parse(localStorage.getItem('listAddresses')) || [];
+
+    let tableBody = document.querySelector('#table tbody');
+    tableBody.innerHTML = '';
+
+    addresses.forEach(address => {
+        let row = document.createElement('tr');
+        
+        row.innerHTML = `
+            <td>${address.logradouro}</td>
+            <td>${address.localidade}</td>
+            <td>${address.gia}</td>
+            <td>${address.complemento}</td>
+            <td>${address.uf}</td>
+            <td>${address.ddd}</td>
+            <td>${address.bairro}</td>
+            <td>${address.ibge}</td>
+            <td>${address.siafi}</td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+}
+
+loadAddresses();

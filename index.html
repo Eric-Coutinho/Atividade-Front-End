@@ -22,7 +22,6 @@
         </h1>
     </div>
     <div class="row">
-        <div class="col-auto"></div>
         <div class="col-auto">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">CEP: </label>
@@ -30,7 +29,6 @@
                     onblur="consultaCep()">
             </div>
         </div>
-        <div class="col-auto"></div>
         <div>
             <button type="button" class="btn btn-primary" onclick="consultaCep()">Consultar</button>
         </div>
@@ -39,8 +37,8 @@
     <div class="row">
         <div class="col-auto inputs">
             <label for="exampleFormControlInput1" class="form-label">Rua: </label>
-            <input id="Rua" class="form-control" type="text" placeholder="Nome da Rua" aria-label="Disabled input example"
-                disabled readonly>
+            <input id="Rua" class="form-control" type="text" placeholder="Nome da Rua"
+                aria-label="Disabled input example" disabled readonly>
 
             <label for="exampleFormControlInput1" class="form-label">Complemento: </label>
             <input class="form-control" type="text" placeholder="Complemento" aria-label="Disabled input example"
@@ -52,7 +50,6 @@
         </div>
 
         <div class="col-auto inputs">
-
             <label for="exampleFormControlInput1" class="form-label">Cidade: </label>
             <input class="form-control" type="text" placeholder="Nome da Cidade" aria-label="Disabled input example"
                 disabled id="Cidade" readonly>
@@ -84,6 +81,29 @@
     <div class="row">
         <div class="col-auto">
             <button type="button" class="btn btn-primary" onclick="addEndereco()">Adicionar Endereço</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-auto">
+            <table id="table" class="table">
+                <thead>
+                    <tr>
+                        <th>Rua</th>
+                        <th>Cidade</th>
+                        <th>GIA</th>
+                        <th>Complemento</th>
+                        <th>UF</th>
+                        <th>DDD</th>
+                        <th>Bairro</th>
+                        <th>IBGE</th>
+                        <th>siafi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
         </div>
     </div>
 
