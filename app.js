@@ -29,13 +29,29 @@ function jqueryGet() {
 }
 
 function consultaCep() {
-   const cep = document.querySelector('#cep').value 
-   const retorno = document.querySelector('#retorno') 
-   fetch(`https://viacep.com.br/ws/${cep}/json/`)
-   .then(resposta => resposta.json())
-//    .then(json => console.log(json))
-   .then(json => {
-     retorno.innerText = JSON.stringify(json)
-   })
-   .catch(error => console.log(error))
+    const cep = document.querySelector('#cep').value;
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(resposta => {
+            if (!resposta.ok) {
+                throw new Error('Erro na rede');
+            }
+            return resposta.json();
+        })
+        .then(json => {
+            if (json.erro) {
+                alert('CEP não encontrado!');
+                return;
+            }
+
+            document.getElementById('Rua').value = json.logradouro || '';
+            document.getElementById('Complemento').value = json.complemento || '';
+            document.getElementById('Bairro').value = json.bairro || '';
+            document.getElementById('Cidade').value = json.localidade || '';
+            document.getElementById('UF').value = json.uf || '';
+            document.getElementById('IBGE').value = json.ibge || '';
+            document.getElementById('GIA').value = json.gia || '';
+            document.getElementById('DDD').value = json.ddd || '';
+            document.getElementById('siafi').value = json.siafi || '';
+        })
+        .catch(error => console.error('Erro:', error));
 }

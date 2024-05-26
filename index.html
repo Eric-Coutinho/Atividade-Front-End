@@ -39,47 +39,52 @@
     <div class="row">
         <div class="col-auto inputs">
             <label for="exampleFormControlInput1" class="form-label">Rua: </label>
-            <input class="form-control" type="text" value="Nome da Rua" aria-label="Disabled input example" disabled
-                readonly>
+            <input id="Rua" class="form-control" type="text" placeholder="Nome da Rua" aria-label="Disabled input example"
+                disabled readonly>
 
             <label for="exampleFormControlInput1" class="form-label">Complemento: </label>
-            <input class="form-control" type="text" value="Complemento" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Complemento" aria-label="Disabled input example"
+                disabled id="Complemento" readonly>
 
             <label for="exampleFormControlInput1" class="form-label">Bairro: </label>
-            <input class="form-control" type="text" value="Nome do Bairro" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Nome do Bairro" aria-label="Disabled input example"
+                disabled id="Bairro" readonly>
         </div>
 
         <div class="col-auto inputs">
 
             <label for="exampleFormControlInput1" class="form-label">Cidade: </label>
-            <input class="form-control" type="text" value="Nome da Cidade" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Nome da Cidade" aria-label="Disabled input example"
+                disabled id="Cidade" readonly>
 
             <label for="exampleFormControlInput1" class="form-label">UF: </label>
-            <input class="form-control" type="text" value="Nome da UF" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Nome da UF" aria-label="Disabled input example"
+                disabled id="UF" readonly>
 
             <label for="exampleFormControlInput1" class="form-label">IBGE: </label>
-            <input class="form-control" type="text" value="Número do IBGE" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Número do IBGE" aria-label="Disabled input example"
+                disabled id="IBGE" readonly>
         </div>
 
         <div class="col-auto inputs">
             <label for="exampleFormControlInput1" class="form-label">GIA: </label>
-            <input class="form-control" type="text" value="Valor GIA" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Valor GIA" aria-label="Disabled input example" disabled
+                id="GIA" readonly>
 
             <label for="exampleFormControlInput1" class="form-label">DDD: </label>
-            <input class="form-control" type="text" value="Número DDD" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Número DDD" aria-label="Disabled input example"
+                disabled id="DDD" readonly>
 
             <label for="exampleFormControlInput1" class="form-label">siafi: </label>
-            <input class="form-control" type="text" value="Valor siafi" aria-label="Disabled input example" disabled
-                readonly>
+            <input class="form-control" type="text" placeholder="Valor siafi" aria-label="Disabled input example"
+                disabled id="siafi" readonly>
         </div>
+    </div>
 
+    <div class="row">
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" onclick="addEndereco()">Adicionar Endereço</button>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
